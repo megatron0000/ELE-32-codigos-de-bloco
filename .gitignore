@@ -4,3 +4,10 @@
 *.asv
 
 Eigen/
+*.aux
+*.fls
+*.synctex.gz
+*.log
+/latex-relatorio/template.tex
+/latex-relatorio/template.pdf
+*.fdb_latexmk
