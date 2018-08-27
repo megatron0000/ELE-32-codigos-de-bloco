@@ -191,7 +191,7 @@
     %\usepackage{mathtime}
     
     
-    %\usepackage{bm}
+    \usepackage{bm}
     % The bm.sty package was written by David Carlisle and Frank Mittelbach.
     % This package provides a \bm{} to produce bold math symbols.
     % http://www.ctan.org/pkg/bm
@@ -520,8 +520,49 @@
      
     % \hfill August 26, 2015
 
-    \section{title}
-    
+    \section{Código de Hamming}
+
+    Implementou-se um código de Hamming (4,7) - 4 bits de informação
+    e 3 de verificação por palavra-código - usando a matriz geradora
+    $G_H$ e a de verificação de paridade $H_H$:
+
+    \begin{equation}
+        G_H=\left(
+        \begin{array}{ccccccc}
+        1 & 0 & 0 & 0 & 1 & 1 & 1 \\
+        0 & 1 & 0 & 0 & 1 & 0 & 1 \\
+        0 & 0 & 1 & 0 & 1 & 1 & 0 \\
+        0 & 0 & 0 & 1 & 0 & 1 & 1 \\
+        \end{array}
+        \right)
+    \end{equation}
+
+    \begin{equation}
+        H_H^T=\left(
+        \begin{array}{ccc}
+        1 & 1 & 1 \\
+        1 & 0 & 1 \\
+        1 & 1 & 0 \\
+        0 & 1 & 1 \\
+        1 & 0 & 0 \\
+        0 & 1 & 0 \\
+        0 & 0 & 1 \\
+        \end{array}
+        \right)
+    \end{equation}
+
+    Para decodificá-lo, lançou-se mão de uma particularidade dos 
+    códigos de Hamming: Observando $H_H^T$, nota-se que as síndromes
+    produzidas por ela têm comprimento 3. Desse modo, há 8 possíveis
+    síndromes, e cada linha da matriz corresponde a uma síndrome 
+    diferente - com exceção da síndrome $\bm{0}$, a qual é desprezada
+    por significar ausência de erro. Em outras
+    palavras, dado um erro qualquer $e$, sua síndrome 
+    $s=e \cdot H^T$ é garantidamente idêntica a alguma linha $l_i$ de 
+    $H_H^T$. Consequentemente, decodificar optando pelo erro de menor peso
+    é imediato: tal erro é o vetor com 0 em todas as posições exceto a de índice
+    $l_i$.
+
     \subsection{Subsection Heading Here}
     Subsection text here.
     
@@ -703,6 +744,10 @@
     \bibitem{IEEEhowto:kopka}
     H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
       0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
+
+    \bibitem{code:source}
+    megatron0000.  megatron0000/ELE-32-codigos-de-bloco 1.1 (Versão 1.1). Zenodo. 
+    http://doi.org/10.5281/zenodo.1403884
     
     \end{thebibliography}
     
