@@ -1,6 +1,6 @@
 origem = [0.5 0.2 0.1];
 p = 0.5;
-while  p(end)> 10^-6
+while  p(end)> 10^-9
    p = [p, p(end)/2]; 
 end
 

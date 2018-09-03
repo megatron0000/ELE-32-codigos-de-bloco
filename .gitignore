@@ -11,3 +11,10 @@ Eigen/
 /latex-relatorio/template.tex
 /latex-relatorio/template.pdf
 *.fdb_latexmk
+boost/
+Eigen/
+.project
+*.out
+dados*/
+temp/
+*.mat
